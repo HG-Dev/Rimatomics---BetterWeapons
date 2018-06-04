@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <!-- PPC battery -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PPC"]/costList</xpath>
+		<value>
+			<Steel>100</Steel>
+      <Component>6</Component>
+		</value>
+	</Operation>
+
+  <!-- ADS microwave -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PPCADS"]/costList</xpath>
+		<value>
+			<Steel>125</Steel>
+      <Component>3</Component>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PPCADS"]/stuffCategories</xpath>
+		<value>
+			<li>Metallic</li>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PPCADS"]/costStuffCount</xpath>
+		<value>100</value>
+	</Operation>
+
+  <!-- Tesla coil -->
+  <Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PPCADS"]/costList</xpath>
+		<value>
+			<Steel>100</Steel>
+      <Component>3</Component>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PPCADS"]/statBases</xpath>
+		<value>
+			<WorkToBuild>2220</WorkToBuild>
+      <Beauty>-20</Component>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PPCADS"]/stuffCategories</xpath>
+		<value>
+			<li>Metallic</li>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PPCADS"]/costStuffCount</xpath>
+		<value>75</value>
+	</Operation>
+
+  <!-- HEL laser -->
+  <Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PPCHEL"]/costList</xpath>
+		<value>
+			<Steel>300</Steel>
+      <Component>4</Component>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PPCHEL"]/statBases</xpath>
+		<value>
+			<WorkToBuild>2500</WorkToBuild>
+      <Beauty>-20</Component>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PPCHEL"]/stuffCategories</xpath>
+		<value>
+			<li>Metallic</li>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PPCHEL"]/costStuffCount</xpath>
+		<value>125</value>
+	</Operation>
+
+  <!-- Railgun -->
+  <Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BaseRailgunBuilding"]/costList</xpath>
+		<value>
+			<Steel>450</Steel>
+      <Component>4</Component>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BaseRailgunBuilding"]/stuffCategories</xpath>
+		<value>
+			<li>Metallic</li>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BaseRailgunBuilding"]/costStuffCount</xpath>
+		<value>100</value>
+	</Operation>
+
+  <!-- Obelisk laser -->
+  <Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PPCObelisk"]/costList</xpath>
+		<value>
+			<Steel>300</Steel>
+      <Component>6</Component>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="PPCObelisk"]/statBases</xpath>
+		<value>
+      <Beauty>10</Component>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PPCObelisk"]/stuffCategories</xpath>
+		<value>
+			<li>Metallic</li>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PPCObelisk"]/costStuffCount</xpath>
+		<value>200</value>
+	</Operation>
+
+  <!-- ICBM -->
+  <Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="BasedWeapon"]/costList</xpath>
+		<value>
+			<Steel>500</Steel>
+      <Component>15</Component>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BasedWeapon"]/stuffCategories</xpath>
+		<value>
+			<li>Metallic</li>
+		</value>
+	</Operation>
+  <Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="BasedWeapon"]/costStuffCount</xpath>
+		<value>150</value>
+	</Operation>
+
+</Patch>
