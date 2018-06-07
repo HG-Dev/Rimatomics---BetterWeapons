@@ -1,147 +1,70 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Patch>
 
-  <!-- PPC battery -->
-	<Operation Class="PatchOperationReplace">
-		<xpath>Defs/ThingDef[defName="PPC"]/costList</xpath>
-		<value>
-			<Steel>100</Steel>
-      <Component>6</Component>
-		</value>
-	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/ThingDef[@ParentName = "BasedWeapon"]/comps/li[@Class = "Rimatomics.CompProperties_Upgradable"]/../../constructEffect</xpath>
+            </li>
+            <li Class="PatchOperationRemove">
+                <xpath>/Defs/ThingDef[@ParentName = "BasedWeapon"]/comps/li[@Class = "Rimatomics.CompProperties_Upgradable"]/../../constructEffect</xpath>
+            </li>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/ThingDef[@ParentName = "BasedWeapon"]/comps/li[@Class = "Rimatomics.CompProperties_Upgradable"]/../../costStuffCount</xpath>
+            </li>
+            <li Class="PatchOperationRemove">
+                <xpath>/Defs/ThingDef[@ParentName = "BasedWeapon"]/comps/li[@Class = "Rimatomics.CompProperties_Upgradable"]/../../costStuffCount</xpath>
+            </li>
+        </operations>
+    </Operation>
 
-  <!-- ADS microwave -->
-	<Operation Class="PatchOperationReplace">
-		<xpath>Defs/ThingDef[defName="PPCADS"]/costList</xpath>
-		<value>
-			<Steel>125</Steel>
-      <Component>3</Component>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="PPCADS"]/stuffCategories</xpath>
-		<value>
-			<li>Metallic</li>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="PPCADS"]/costStuffCount</xpath>
-		<value>100</value>
-	</Operation>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[@ParentName = "BasedWeapon"]/comps/li[@Class = "Rimatomics.CompProperties_Upgradable"]/../..</xpath>
+        <value>
+            <stuffCategories><li>Metallic</li></stuffCategories><costStuffCount>10</costStuffCount>
+        </value>
+    </Operation>
 
-  <!-- Tesla coil -->
-  <Operation Class="PatchOperationReplace">
-		<xpath>Defs/ThingDef[defName="PPCADS"]/costList</xpath>
-		<value>
-			<Steel>100</Steel>
-      <Component>3</Component>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationReplace">
-		<xpath>Defs/ThingDef[defName="PPCADS"]/statBases</xpath>
-		<value>
-			<WorkToBuild>2220</WorkToBuild>
-      <Beauty>-20</Component>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="PPCADS"]/stuffCategories</xpath>
-		<value>
-			<li>Metallic</li>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="PPCADS"]/costStuffCount</xpath>
-		<value>75</value>
-	</Operation>
+    <!-- Edits specific to Tesla Coil -->
+    <Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+            <li Class="PatchOperationRemove">
+                <xpath>/Defs/ThingDef[defName = "PPCTeslaCoil"]/graphicData/shaderType</xpath>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef[defName = "PPCTeslaCoil"]/graphicData</xpath>
+                <value>
+                    <shaderType>CutoutComplex</shaderType>
+                </value>
+            </li>
+        </operations>
+    </Operation>
 
-  <!-- HEL laser -->
-  <Operation Class="PatchOperationReplace">
-		<xpath>Defs/ThingDef[defName="PPCHEL"]/costList</xpath>
-		<value>
-			<Steel>300</Steel>
-      <Component>4</Component>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationReplace">
-		<xpath>Defs/ThingDef[defName="PPCHEL"]/statBases</xpath>
-		<value>
-			<WorkToBuild>2500</WorkToBuild>
-      <Beauty>-20</Component>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="PPCHEL"]/stuffCategories</xpath>
-		<value>
-			<li>Metallic</li>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="PPCHEL"]/costStuffCount</xpath>
-		<value>125</value>
-	</Operation>
-
-  <!-- Railgun -->
-  <Operation Class="PatchOperationReplace">
-		<xpath>Defs/ThingDef[defName="BaseRailgunBuilding"]/costList</xpath>
-		<value>
-			<Steel>450</Steel>
-      <Component>4</Component>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="BaseRailgunBuilding"]/stuffCategories</xpath>
-		<value>
-			<li>Metallic</li>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="BaseRailgunBuilding"]/costStuffCount</xpath>
-		<value>100</value>
-	</Operation>
-
-  <!-- Obelisk laser -->
-  <Operation Class="PatchOperationReplace">
-		<xpath>Defs/ThingDef[defName="PPCObelisk"]/costList</xpath>
-		<value>
-			<Steel>300</Steel>
-      <Component>6</Component>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationReplace">
-		<xpath>Defs/ThingDef[defName="PPCObelisk"]/statBases</xpath>
-		<value>
-      <Beauty>10</Component>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="PPCObelisk"]/stuffCategories</xpath>
-		<value>
-			<li>Metallic</li>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="PPCObelisk"]/costStuffCount</xpath>
-		<value>200</value>
-	</Operation>
-
-  <!-- ICBM -->
-  <Operation Class="PatchOperationReplace">
-		<xpath>Defs/ThingDef[defName="BasedWeapon"]/costList</xpath>
-		<value>
-			<Steel>500</Steel>
-      <Component>15</Component>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="BasedWeapon"]/stuffCategories</xpath>
-		<value>
-			<li>Metallic</li>
-		</value>
-	</Operation>
-  <Operation Class="PatchOperationAdd">
-		<xpath>Defs/ThingDef[defName="BasedWeapon"]/costStuffCount</xpath>
-		<value>150</value>
-	</Operation>
+    <!-- Add VG recipes to Self Cooker -->
+    <Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+            <li Class="ModCheck.isModLoaded">
+                <modName>VGP Garden Gourmet</modName>
+                <yourMod>Rimatomics: Better Weapons</yourMod>
+                <errorOnFail>true</errorOnFail>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef[thingClass = "ProjectRimFactory.SAL3.Things.Assemblers.Building_SimpleAssembler"]/recipes</xpath>
+                <value>
+                    <li>CraftFlour</li>
+                    <li>GroundSugar</li>
+                    <li>CraftCornmeal</li>
+                    <li>Makesoycheese</li>
+                    <li>Maketofu</li>
+                    <li>MakePolenta</li>
+                    <li>BakeBread</li>
+                    <li>CraftChocolate</li>
+                </value>
+            </li>
+        </operations>
+    </Operation>
 
 </Patch>
