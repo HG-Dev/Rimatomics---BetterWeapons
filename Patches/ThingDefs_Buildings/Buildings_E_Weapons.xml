@@ -12,7 +12,7 @@
     <Operation Class="PatchOperationAdd">
         <xpath>/Defs/ThingDef[@ParentName = "BasedWeapon"]/comps/li[@Class = "Rimatomics.CompProperties_Upgradable"]/../..</xpath>
         <value>
-            <stuffCategories><li>Metallic</li></stuffCategories><costStuffCount>10</costStuffCount>
+            <stuffCategories><li>Metallic</li></stuffCategories>
         </value>
     </Operation>
 
@@ -33,38 +33,90 @@
         </operations>
     </Operation>
 
+    <!-- Original values -->
+    <!-->
+    <PPCHEL>
+      <Steel>650</Steel> (expensive yet niche)
+      <Component>8</Component>
+    
+    <BaseRailgunBuilding (@Name)>
+      <Steel>650</Steel>
+      <Component>10</Component>
+
+    <PPCObelisk> (more components than a railgun? I think not)
+      <Steel>600</Steel>
+      <Component>12</Component>
+
+    <PPCTeslaCoil (pretty well balanced)>
+      <Steel>175</Steel>
+      <Component>3</Component>
+
+    <PPCADS>
+      <Steel>600</Steel>
+      <Component>5</Component>
+
+    <PPC> (change this it costs no more than building six batteries)
+      <Steel>400</Steel>
+      <Component>8</Component>
+    <-->
     <!-- Modify base costs for steel and components -->
     <Operation Class="PatchOperationSequence">
         <success>Always</success>
         <operations>
+            <!-- Establish minimum required steel for most buildings as 300 -->
             <li Class="PatchOperationReplace">
-                <xpath>*/ThingDef[defName = "PPC" or defName = "PPCHEL" or defName = "PPCObelisk"]/costList/Steel</xpath>
+                <xpath>/Defs/ThingDef[defName = "PPC" or defName = "PPCHEL" or defName = "PPCObelisk" or defName = "PPCADS" or @Name = "BaseRailgunBuilding"]/costList/Steel</xpath>
                 <value>
                     <Steel>300</Steel>
                 </value>
             </li>
             <li Class="PatchOperationReplace">
-                <xpath>*/ThingDef[defName = "PPCADS" or defName = "PPCTeslaCoil"]/costList/Steel</xpath>
+                <xpath>/Defs/ThingDef[defName = "PPCTeslaCoil"]/costList/Steel</xpath>
                 <value>
                     <Steel>125</Steel>
                 </value>
             </li>
             <li Class="PatchOperationReplace">
-                <xpath>*/ThingDef[defName = "PPC" or defname = "PPCObelisk"]/costList/Component</xpath>
+                <xpath>/Defs/ThingDef[defName = "PPCObelisk"]/costList/Component</xpath>
                 <value>
-                    <Component>5</Component>
+                    <Component>8</Component>
                 </value>
             </li>
             <li Class="PatchOperationReplace">
-                <xpath>*/ThingDef[defName = "PPCHEL"]/costList/Component</xpath>
+                <xpath>/Defs/ThingDef[defName = "PPC" or defname = "PPCHEL"]/costList/Component</xpath>
+                <value>
+                    <Component>6</Component>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName = "PPCADS"]/costList/Component</xpath>
                 <value>
                     <Component>4</Component>
                 </value>
             </li>
-            <li Class="PatchOperationReplace">
-                <xpath>*/ThingDef[defName = "PPCADS" or defname = "PPCTeslaCoil"]/costList/Component</xpath>
+            <!-- Set costStuffCount uniquely for each device -->
+            <li Class="PatchOperationInsert">
+                <xpath>/Defs/ThingDef[defName = "PPCHEL" or @Name = "BaseRailgunBuilding"]/stuffCategories</xpath>
                 <value>
-                    <Component>3</Component>
+                    <costStuffCount>250</costStuffCount>
+                </value>
+            </li>
+            <li Class="PatchOperationInsert">
+                <xpath>/Defs/ThingDef[defName = "PPCObelisk"]/stuffCategories</xpath>
+                <value>
+                    <costStuffCount>200</costStuffCount>
+                </value>
+            </li>
+            <li Class="PatchOperationInsert">
+                <xpath>/Defs/ThingDef[defName = "PPCADS"]/stuffCategories</xpath>
+                <value>
+                    <costStuffCount>125</costStuffCount>
+                </value>
+            </li>
+            <li Class="PatchOperationInsert">
+                <xpath>/Defs/ThingDef[defName = "PPCTeslaCoil"]/stuffCategories</xpath>
+                <value>
+                    <costStuffCount>50</costStuffCount>
                 </value>
             </li>
         </operations>
@@ -76,7 +128,7 @@
 		<operations>
             <li Class="ModCheck.isModLoaded">
                 <modName>VGP Garden Gourmet</modName>
-                <yourMod>Rimatomics: Better Weapons</yourMod>
+                <yourMod>Rimatomics: Stuffed Turrets</yourMod>
                 <errorOnFail>false</errorOnFail>
             </li>
             <li Class="PatchOperationAdd">
