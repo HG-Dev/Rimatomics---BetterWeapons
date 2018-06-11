@@ -142,6 +142,8 @@
                     <li>MakePolenta</li>
                     <li>BakeBread</li>
                     <li>CraftChocolate</li>
+                    <li>ButcherCorpseFlesh</li>
+                    <li>MakeKibble</li>
                 </value>
             </li>
         </operations>
