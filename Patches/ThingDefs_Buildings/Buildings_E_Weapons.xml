@@ -122,31 +122,23 @@
         </operations>
     </Operation>
 
-    <!-- Add VG recipes to Self Cooker -->
-    <Operation Class="PatchOperationSequence">
-		<success>Always</success>
-		<operations>
-            <li Class="ModCheck.isModLoaded">
-                <modName>VGP Garden Gourmet</modName>
-                <yourMod>Rimatomics: Stuffed Turrets</yourMod>
-                <errorOnFail>false</errorOnFail>
-            </li>
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/ThingDef[thingClass = "ProjectRimFactory.SAL3.Things.Assemblers.Building_SimpleAssembler"]/recipes</xpath>
-                <value>
-                    <li>CraftFlour</li>
-                    <li>GroundSugar</li>
-                    <li>CraftCornmeal</li>
-                    <li>Makesoycheese</li>
-                    <li>Maketofu</li>
-                    <li>MakePolenta</li>
-                    <li>BakeBread</li>
-                    <li>CraftChocolate</li>
-                    <li>ButcherCorpseFlesh</li>
-                    <li>MakeKibble</li>
-                </value>
-            </li>
-        </operations>
+    <!-- This section can be uncommented for extra functionality between VGP GG and RimFactory -->
+    <!-- Add VG recipes to Self Cooker (safety check removed so ModCheck assembly could be removed)
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/ThingDef[thingClass = "ProjectRimFactory.SAL3.Things.Assemblers.Building_SimpleAssembler"]/recipes</xpath>
+        <value>
+            <li>CraftFlour</li>
+            <li>GroundSugar</li>
+            <li>CraftCornmeal</li>
+            <li>Makesoycheese</li>
+            <li>Maketofu</li>
+            <li>MakePolenta</li>
+            <li>BakeBread</li>
+            <li>CraftChocolate</li>
+            <li>ButcherCorpseFlesh</li>
+            <li>MakeKibble</li>
+        </value>
     </Operation>
+    -->
 
 </Patch>
